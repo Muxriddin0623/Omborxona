@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3>
+            <p>{{ user.username }}</p>
+    <p>
+        <button class="btn btn-success" type="submit">Mahsulotlar</button>
+         <button class="btn btn-success" type="submit">Qurulish jihozlari</button>
+            <p><br><a href="{% url 'logout' %}">Chiqish</a></p>
+            </p>
+        </h3>
+    {% else %}
+        <h4>
+    <p>Siz ro'yxatdan o'tmagansiz !</p>
+    <a href="{% url 'login' %}">Hisobga kirish</a> <!-- |
+    <a href="{% url 'signup' %}">Signup</a> -->
+        </h4>
+    {% endif %}
+{% endblock %}
